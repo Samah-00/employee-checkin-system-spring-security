@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clock In/Out</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container text-center">
+  <img src="/images/fingerprint.png" alt="Employee Login System" height="300" width="210">
+  <div th:replace="fragments::logout"></div>
+  <div class="d-inline-flex">
+    <form th:action="@{/employee/clock-in}" method="get">
+      <input type="hidden" name="employeeId" th:value="${employee.id}" />
+      <button type="submit" class="btn btn-primary mr-2" th:disabled="${clockInDisabled}">
+        Clock In
+      </button>
+    </form>
+    <form th:action="@{/employee/clock-out}" method="get">
+      <input type="hidden" name="employeeId" th:value="${employee.id}" />
+      <button type="submit" class="btn btn-primary ml-2" th:disabled="${clockOutDisabled}">
+        Clock Out
+      </button>
+    </form>
+  </div>
+  <div class="text-center mt-5">
+    <span th:if="${attendance != null && attendance.clockOutTime != null}">
+      Clocked In at: <span th:text="${attendance.clockInTime}"></span>
+    </span>
+    <span th:if="${attendance == null || attendance.clockOutTime == null}">
+      Hours Passed since Clock In: <span th:text="${hoursPassed}"></span>
+    </span>
+  </div>
+  <a th:href="@{/employee/attendance(employeeId=${employee.id})}" class="btn btn-link mb-1">View Attendance</a>
+</div>
+</body>
+</html>

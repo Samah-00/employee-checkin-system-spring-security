@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+div.logout {
+    float: right;
+}
+
+.btn-indigo {
+    color: #fff;
+    background-color: #6610f2;
+    border-color: #6610f2;
+}
+
+.btn-indigo:hover {
+    background-color: #580ce0;
+    border-color: #580ce0;
+}
+
+.btn-indigo:focus,
+.btn-indigo.focus {
+    box-shadow: 0 0 0 0.2rem rgba(102, 16, 242, 0.5);
+}
+
+.btn-indigo.disabled,
+.btn-indigo:disabled {
+    background-color: #6610f2;
+    border-color: #6610f2;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container text-center">
+  <img src="/images/fingerprint.png" alt="Employee Login System" height="300" width="210">
+  <div class="row">
+    <div class="col">
+      <p>Employee: <span th:text="${employee.email}"></span></p>
+    </div>
+    <div class="col">
+      <a href="/admin/employees" class="btn btn-link mb-1">Go Back</a>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Clock In</th>
+      <th>Clock Out</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="attendance : ${attendanceRecords}">
+      <td th:text="${attendance.date}"></td>
+      <td th:text="${attendance.clockInTime}"></td>
+      <td th:text="${attendance.clockOutTime}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+
+
+

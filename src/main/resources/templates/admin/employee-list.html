@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container">
+  <div class="row">
+    <div class="col container">
+      <div th:replace="fragments::fingerprint"></div>
+    </div>
+    <div class="col container mr-5 mt-5">
+    <h1>Employee List</h1>
+    <div th:replace="fragments::logout"></div>
+    <table class="table mt-5">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="employee : ${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.email}"></td>
+        <td>
+          <div class="btn-group mb-1" role="group" aria-label="Basic example">
+            <a th:href="@{/admin/employees/{id}(id=${employee.id})}" class="btn btn-primary">Details</a>
+            <a th:href="@{/admin/employees/{id}/edit(id=${employee.id})}" class="btn btn-secondary">Edit</a>
+            <a th:href="@{/admin/employees/{id}/delete(id=${employee.id})}" class="btn btn-danger">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

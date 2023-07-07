@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+</head>
+<body>
+<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">
+    Logged user: <span sec:authentication="name">?</span> |
+    <!--/* When using CSRF this needs to be a POST */-->
+    <form th:action="@{/logout}" method="post" style="display: inline">
+        <button type="submit" class="btn btn-link mb-1">Logout</button>
+    </form>
+</div>
+<div th:fragment="fingerprint">
+      <figure>
+          <div class="d-flex justify-content-center">
+              <img src="/images/fingerprint.png" alt="Employee Login System">
+          </div>
+      </figure>
+  </div>
+</body>
+</html>
