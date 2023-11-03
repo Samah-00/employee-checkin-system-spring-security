@@ -1,6 +1,6 @@
 ## Authors
-* Name: Email: Saja Abu Maizar | ID:208072371 | sajaabu@edu.hac.ac.il
-* Name: Email: Samah Rajabi | ID: 211558556 | samahra@edu.hac.ac.il
+* Name: Samah Rajabi
+* Name: Saja Abu Maizar
 
 ## Description
 
